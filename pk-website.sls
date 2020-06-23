@@ -17,13 +17,14 @@ pk-source:
 pk-website-install:
    cmd.wait:
       - name: npm install
-      - cwd: /home/pkops/pkwebsite
+      - cwd: /home/pkops/pkwebsite/myapp
       - watch:
         - git: pk-source
 
 pk-build-script:
    cmd.wait:
-      - name: npm run-script build
-      - cwd: /home/pkops/pkwebsite
+      #- name: npm run-script build
+      - name: node index.js
+      - cwd: /home/pkops/pkwebsite/myapp
       - watch:
         - git: pk-source
